@@ -10,15 +10,13 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int t = Integer.parseInt(sc.nextLine());
         while (t-- > 0) {
-            List<Integer> arr = new ArrayList<>();
-            String input = sc.nextLine();
-            Scanner ss = new Scanner(input);
-            while (ss.hasNextInt()) {
-                arr.add(ss.nextInt());
-            }
+            String[] arr1Str = sc.nextLine().split(" ");
+            int[] arr = Arrays.stream(arr1Str).mapToInt(Integer::parseInt).toArray();
             Solution ob = new Solution();
-            int ans = ob.print2largest(arr);
+            int ans = ob.getSecondLargest(arr);
             System.out.println(ans);
+
+            System.out.println("~");
         }
     }
 }
@@ -29,13 +27,22 @@ public class Main {
 // User function Template for Java
 
 class Solution {
-    public int print2largest(List<Integer> arr) {
-        Set<Integer> uniqueElements = new HashSet<>(arr);
-        if(uniqueElements.size() < 2){
-            return -1;
+    public int getSecondLargest(int[] arr) {
+        // Initialize largest and second largest
+        int largest = -1;
+        int secondLargest = -1;
+
+        for (int num : arr) {
+            // Update largest and second largest
+            if (num > largest) {
+                secondLargest = largest;
+                largest = num;
+            } else if (num > secondLargest && num < largest) {
+                secondLargest = num;
+            }
         }
-        List<Integer> sortedList = new ArrayList<>(uniqueElements);
-        Collections.sort(sortedList, Collections.reverseOrder());
-        return sortedList.get(1);
+
+        // If second largest does not exist, return -1
+        return secondLargest;
     }
 }
