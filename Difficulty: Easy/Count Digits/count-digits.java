@@ -1,44 +1,40 @@
 //{ Driver Code Starts
-//Initial Template for Java
-
+// Initial Template for Java
 
 import java.io.*;
 import java.util.*;
 
-class GFG
-{
-    public static void main(String args[])throws IOException
-    {
+class GFG {
+    public static void main(String args[]) throws IOException {
         BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(read.readLine());
-        while(t-- > 0)
-        {
+        while (t-- > 0) {
             int N = Integer.parseInt(read.readLine());
             Solution ob = new Solution();
             System.out.println(ob.evenlyDivides(N));
+
+            System.out.println("~");
         }
     }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
+// User function Template for Java
 
-
-class Solution{
-    static int evenlyDivides(int N) {
-        int originalNumber = N;
-        int count = 0;
+class Solution {
+    static int evenlyDivides(int n) {
+        int OgNo = n;
+        int ans = 0; // here store the final answer
         
-        // Iterate through each digit in the number
-        while (N > 0) {
-            int digit = N % 10; // Get the last digit
-            if (digit != 0 && originalNumber % digit == 0) { // Check divisibility
-                count++;
+        while(n>0){
+            int lastDigit = n%10;
+            
+            if(lastDigit!=0 && OgNo % lastDigit ==0){
+                ans++;
             }
-            N = N / 10; // Remove the last digit
-        }
-        
-        return count;
+            n= n/10;
+        }   
+        return ans;
     }
 }
