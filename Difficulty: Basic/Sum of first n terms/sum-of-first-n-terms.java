@@ -6,13 +6,14 @@ import java.util.*;
 
 class GFG {
     public static void main(String args[]) throws IOException {
-        BufferedReader read =
-            new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(read.readLine());
         while (t-- > 0) {
             int N = Integer.parseInt(read.readLine());
             Solution ob = new Solution();
             System.out.println(ob.sumOfSeries(N));
+
+            System.out.println("~");
         }
     }
 }
@@ -23,8 +24,8 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    long sumOfSeries(long n) {
-        long sums = n * (n + 1) / 2;
-        return sums * sums;
+    int sumOfSeries(int n) {
+        int sum = n * (n + 1) / 2;
+        return sum * sum;
     }
 }
