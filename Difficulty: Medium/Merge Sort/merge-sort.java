@@ -1,124 +1,89 @@
 //{ Driver Code Starts
+// Initial Template for Java
+
+import java.io.*;
+import java.lang.*;
 import java.util.*;
 
-class Merge_Sort
-{
-    //method to print the elements of the array
-	static void printArray(int arr[])
-    {
-        StringBuffer sb=new StringBuffer("");
-        int n = arr.length;
-        for (int i=0; i<n; ++i)
-            sb.append(arr[i]+" ");
-        System.out.println(sb.toString());
+class Main {
+    public static void main(String args[]) throws IOException {
+        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(read.readLine());
+
+        while (t-- > 0) {
+
+            ArrayList<Integer> array1 = new ArrayList<Integer>();
+            String line = read.readLine();
+            String[] tokens = line.split(" ");
+            for (String token : tokens) {
+                array1.add(Integer.parseInt(token));
+            }
+            ArrayList<Integer> v = new ArrayList<Integer>();
+            int[] arr = new int[array1.size()];
+            int idx = 0;
+            for (int i : array1) arr[idx++] = i;
+
+            new Solution().mergeSort(arr, 0, arr.length - 1);
+
+            for (int i = 0; i < arr.length; i++) System.out.print(arr[i] + " ");
+
+            System.out.println();
+
+            System.out.println("~");
+        }
     }
-
-    
-
-	public static void main(String args[])
-	{
-	    //taking input using Scanner class
-		Scanner sc = new Scanner(System.in);
-		
-		//taking testcases
-		int T = sc.nextInt();
-		while(T>0)
-		{
-		    //taking elements count
-			int n = sc.nextInt();
-			
-			//creating an object of class Merge_Sort
-			Merge_Sort ms = new Merge_Sort();
-			
-			//creating an array of size n
-			int arr[] = new int[n];
-			
-			//adding elements to the array
-			for(int i=0;i<n;i++)
-				arr[i] = sc.nextInt();
-
-            
-			Solution g = new Solution();
-			
-			//calling the method mergeSort
-			g.mergeSort(arr,0,arr.length-1);
-
-            //calling the method printArray
-			ms.printArray(arr);
-		T--;
-		}
-	}
 }
-
-
 
 // } Driver Code Ends
 
 
-class Solution
-{
-    // Function to merge the two halves
-    void merge(int arr[], int l, int m, int r)
-    {
-         int i, j, k;
-         int n1 = m - l + 1;
-         int n2 = r - m;
+class Solution {
 
-         // Create temporary arrays
-         int L[] = new int[n1];
-         int R[] = new int[n2];
-         
-         // Copy data to temporary arrays L[] and R[]
-         for (i = 0; i < n1; i++)
-             L[i] = arr[l + i];
-         for (j = 0; j < n2; j++)
-             R[j] = arr[m + 1 + j];
-         
-         // Merge the temporary arrays back into arr[l..r]
-         i = 0; // Initial index of first subarray
-         j = 0; // Initial index of second subarray
-         k = l; // Initial index of merged subarray
-         
-         while (i < n1 && j < n2) {
-             if (L[i] <= R[j]) {
-                 arr[k] = L[i];
-                 i++;
-             }
-             else {
-                 arr[k] = R[j];
-                 j++;
-             }
-             k++;
-         }
-         
-         // Copy the remaining elements of L[], if any
-         while (i < n1) {
-             arr[k] = L[i];
-             i++;
-             k++;
-         }
-         
-         // Copy the remaining elements of R[], if any
-         while (j < n2) {
-             arr[k] = R[j];
-             j++;
-             k++;
-         }
+    void mergeSort(int arr[], int l, int r) {
+    if (l < r) {
+            int mid = l + (r - l) / 2;
+
+            mergeSort(arr, l, mid);
+            mergeSort(arr, mid + 1, r);
+
+            merge(arr, l, mid, r);
+        }
     }
 
-    // Function to sort array arr[] using merge sort algorithm
-    void mergeSort(int arr[], int l, int r)
-    {
-        if (l < r) {
-            // Find the middle point
-            int m = l + (r - l) / 2;
+    void merge(int arr[], int l, int mid, int r) {
+        int n1 = mid - l + 1;
+        int n2 = r - mid;
 
-            // Sort first and second halves
-            mergeSort(arr, l, m);
-            mergeSort(arr, m + 1, r);
+        int left[] = new int[n1];
+        int right[] = new int[n2];
 
-            // Merge the sorted halves
-            merge(arr, l, m, r);
+        for (int i = 0; i < n1; i++)
+            left[i] = arr[l + i];
+        for (int i = 0; i < n2; i++)
+            right[i] = arr[mid + 1 + i];
+
+        int i = 0, j = 0, k = l;
+        while (i < n1 && j < n2) {
+            if (left[i] <= right[j]) {
+                arr[k] = left[i];
+                i++;
+            } else {
+                arr[k] = right[j];
+                j++;
+            }
+            k++;
         }
+
+        while (i < n1) {
+            arr[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j < n2) {
+            arr[k] = right[j];
+            j++;
+            k++;
+        }    
     }
 }
