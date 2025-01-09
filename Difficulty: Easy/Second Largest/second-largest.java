@@ -28,21 +28,37 @@ public class Main {
 
 class Solution {
     public int getSecondLargest(int[] arr) {
-        // Initialize largest and second largest
-        int largest = -1;
+        int max = arr[0];
         int secondLargest = -1;
 
-        for (int num : arr) {
-            // Update largest and second largest
-            if (num > largest) {
-                secondLargest = largest;
-                largest = num;
-            } else if (num > secondLargest && num < largest) {
-                secondLargest = num;
+        for (int i = 1; i <arr.length; i++) 
+        {
+            if (arr[i] > max) 
+            {
+                secondLargest = max;
+                max = arr[i];
+            } 
+            else if (arr[i] > secondLargest && arr[i] < max) {
+                secondLargest = arr[i];
             }
         }
-
-        // If second largest does not exist, return -1
         return secondLargest;
     }
 }
+// class Solution {
+//     public int getSecondLargest(int[] arr) {
+//         // Initialize largest and second largest
+//         int largest = 1;
+//         int secondLargest = -1;
+
+//         for (int num : arr) {
+//             if (num > largest) {
+//                 secondLargest = largest;
+//                 largest = num;
+//             } else if (num > secondLargest && num < largest) {
+//                 secondLargest = num;
+//             }
+//         }
+//         return secondLargest;
+//     }
+// }
