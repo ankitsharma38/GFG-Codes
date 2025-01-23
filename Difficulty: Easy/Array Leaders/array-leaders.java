@@ -37,27 +37,15 @@ class Geeks {
 
 class Solution {
     static ArrayList<Integer> leaders(int arr[]) {
-        ArrayList<Integer> result = new ArrayList<>();
-        int n = arr.length;
-
-        // Start with the rightmost element as it is always a leader
-        int maxFromRight = arr[n - 1];
-        result.add(maxFromRight);
-
-        // Traverse the array from right to left
-        for (int i = n - 2; i >= 0; i--) {
-            if (arr[i] >= maxFromRight) {
-                maxFromRight = arr[i]; // Update the maximum from the right
-                result.add(maxFromRight);
+        int leader = arr[arr.length-1];
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = arr.length -1 ; i >= 0; i--){
+            if(arr[i] >= leader){
+                leader = arr[i];
+                list.add(0,leader);
             }
         }
-
-        // Reverse the result list to maintain the original order of leaders
-        ArrayList<Integer> reversedResult = new ArrayList<>();
-        for (int i = result.size() - 1; i >= 0; i--) {
-            reversedResult.add(result.get(i));
-        }
-
-        return reversedResult;
+        
+        return list;
     }
 }
