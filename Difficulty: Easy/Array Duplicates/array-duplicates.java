@@ -43,12 +43,9 @@ class Solution {
 
         for (int i = 0; i < arr.length; i++) {
             if (!seen.add(arr[i])) {
-                // If add() returns false, it means the element was already in the set (duplicate).
                 duplicates.add(arr[i]);
             }
         }
-
-        // Convert the set of duplicates into a list to return
         result.addAll(duplicates);
         return result;
     }
