@@ -60,9 +60,7 @@ class Solution {
         Node slowPtr = head;
         Node fastPtr = head;
         
-        //traverse ast pointer until last node
         while(fastPtr != null && fastPtr.next !=null){
-            //move slowPtr by 1
             slowPtr = slowPtr.next;
             fastPtr = fastPtr.next.next;
         }
