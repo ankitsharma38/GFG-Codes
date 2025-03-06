@@ -31,7 +31,7 @@ public class GFG {
 // } Driver Code Ends
 
 
-// User function Template for Java
+// this code not passes after 10 case in gfg but it conrrect run on netflix
 
 // class Solution {
 //     public int binarysearch(int[] arr, int k) {
