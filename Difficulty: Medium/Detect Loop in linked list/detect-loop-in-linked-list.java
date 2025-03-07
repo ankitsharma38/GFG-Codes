@@ -82,6 +82,14 @@ class Node
 */
 
 class Solution {
+
+Java (1.8)
+
+
+
+ 
+
+Custom Input
     // Function to check if the linked list has a loop.
     public static boolean detectLoop(Node head) {
         if(head==null) return false;
