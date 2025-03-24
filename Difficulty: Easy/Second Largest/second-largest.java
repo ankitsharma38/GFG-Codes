@@ -31,34 +31,15 @@ class Solution {
         int max = arr[0];
         int secondLargest = -1;
 
-        for (int i = 1; i <arr.length; i++) 
-        {
-            if (arr[i] > max) 
-            {
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] > max){
                 secondLargest = max;
                 max = arr[i];
-            } 
-            else if (arr[i] > secondLargest && arr[i] < max) {
+            }
+            else if(arr[i] > secondLargest && arr[i] < max){
                 secondLargest = arr[i];
             }
         }
         return secondLargest;
     }
 }
-// class Solution {
-//     public int getSecondLargest(int[] arr) {
-//         // Initialize largest and second largest
-//         int largest = 1;
-//         int secondLargest = -1;
-
-//         for (int num : arr) {
-//             if (num > largest) {
-//                 secondLargest = largest;
-//                 largest = num;
-//             } else if (num > secondLargest && num < largest) {
-//                 secondLargest = num;
-//             }
-//         }
-//         return secondLargest;
-//     }
-// }
