@@ -24,8 +24,6 @@ public class Main {
 // } Driver Code Ends
 
 
-// User function Template for Java
-
 class Solution {
     public int getSecondLargest(int[] arr) {
         int max = arr[0];
@@ -41,5 +39,6 @@ class Solution {
             }
         }
         return secondLargest;
+        
     }
 }
