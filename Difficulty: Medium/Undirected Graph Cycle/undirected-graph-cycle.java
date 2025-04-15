@@ -67,4 +67,3 @@ class Solution {
         parent[y] = x;
     }
 }
-
