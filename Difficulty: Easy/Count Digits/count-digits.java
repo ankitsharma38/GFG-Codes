@@ -20,21 +20,19 @@ class GFG {
 // } Driver Code Ends
 
 
-// User function Template for Java
 
 class Solution {
     static int evenlyDivides(int n) {
         int OgNo = n;
-        int ans = 0; // here store the final answer
+        int ans = 0;
         
         while(n>0){
             int lastDigit = n%10;
-            
             if(lastDigit!=0 && OgNo % lastDigit ==0){
                 ans++;
             }
-            n= n/10;
-        }   
+            n=n/10;
+        }
         return ans;
     }
 }
