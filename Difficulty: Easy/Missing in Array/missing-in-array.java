@@ -19,20 +19,14 @@ class Geeks {
 }
 // } Driver Code Ends
 
-
 class Solution {
     int missingNum(int arr[]) {
         int n = arr.length + 1;
-        int expectedSum = 0;
-        for (int i = 1; i <= n; i++) {
-            expectedSum += i;
-        }
-
-        int actualSum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            actualSum += arr[i];
-        }
-
-        return expectedSum - actualSum;
+         long totalSum = (long) n * (n + 1) / 2; // Use long to avoid overflow
+         long arraySum = 0;
+         for (int i = 0; i < arr.length; i++) {
+             arraySum += arr[i];
+         }
+         return (int) (totalSum - arraySum);
     }
 }
