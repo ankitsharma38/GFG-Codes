@@ -12,7 +12,7 @@ class Geeks {
             for (int i = 0; i < str.length; i++) {
                 arr[i] = Integer.parseInt(str[i]);
             }
-            System.out.println(new Solution().missingNumber(arr));
+            System.out.println(new Solution().missingNum(arr));
             System.out.println("~");
         }
     }
@@ -21,13 +21,18 @@ class Geeks {
 
 
 class Solution {
-    int missingNumber(int arr[]) {
+    int missingNum(int arr[]) {
         int n = arr.length + 1;
-        long totalSum = (long) n * (n + 1) / 2; // Use long to avoid overflow
-        long arraySum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            arraySum += arr[i];
+        int expectedSum = 0;
+        for (int i = 1; i <= n; i++) {
+            expectedSum += i;
         }
-        return (int) (totalSum - arraySum);
+
+        int actualSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            actualSum += arr[i];
+        }
+
+        return expectedSum - actualSum;
     }
 }
