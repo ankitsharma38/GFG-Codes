@@ -25,7 +25,8 @@ class Driver {
 
 class Solution {
     public static String reverseString(String s) {
-        StringBuilder ss=new StringBuilder(s);
+        StringBuilder ss = new StringBuilder(s);
         return ss.reverse().toString();
+        
     }
 }
