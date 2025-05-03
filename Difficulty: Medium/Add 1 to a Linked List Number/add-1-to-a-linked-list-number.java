@@ -36,7 +36,9 @@ class GfG {
             Solution obj = new Solution();
             head = obj.addOne(head);
             printList(head);
-        }
+        
+System.out.println("~");
+}
     }
 }
 // } Driver Code Ends
