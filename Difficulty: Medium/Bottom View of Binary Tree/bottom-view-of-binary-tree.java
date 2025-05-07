@@ -106,7 +106,9 @@ class GfG {
 			    ArrayList <Integer> res = ob.bottomView(root);
 			    for (Integer num : res) System.out.print (num + " ");
 		     	System.out.println();
-	        }
+	        
+System.out.println("~");
+}
 	}
 }
 
@@ -114,8 +116,7 @@ class GfG {
 // } Driver Code Ends
 
 
-//User function Template for Java
-
+// User function Template for Java
 
 class Solution {
     // Nested Pair class to store the horizontal distance and the node
